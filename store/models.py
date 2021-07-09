@@ -5,7 +5,7 @@ from django.db.models.enums import Choices
 
 class Collection(models.Model):
     title = models.CharField(max_length=255)
-    feature_product = models.ForeignKey(
+    featured_product = models.ForeignKey(
         'Product', on_delete=SET_NULL, null=True, related_name='+')
 
 
@@ -15,7 +15,7 @@ class Promotion(models.Model):
 
 
 class Product(models.Model):
-    name = models.CharField(max_length=255)
+    title = models.CharField(max_length=255)
     slug = models.SlugField()
     description = models.TextField()
     unit_price = models.DecimalField(max_digits=6, decimal_places=2)
@@ -39,7 +39,7 @@ class Customer(models.Model):
     first_name = models.CharField(max_length=255)
     last_name = models.CharField(max_length=255)
     email = models.EmailField(unique=True)
-    phone = models.IntegerField()
+    phone = models.CharField(max_length=255)
     birth_date = models.DateField(null=True)
     membership = models.CharField(
         max_length=1, choices=MEMBERSHIP_CHOICES, default=MEMBERSHIP_BRONZE)
