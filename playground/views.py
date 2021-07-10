@@ -1,13 +1,9 @@
-from typing_extensions import ParamSpecKwargs
 from django.shortcuts import render
 from django.core.exceptions import ObjectDoesNotExist
 from store.models import Product
 
 
 def hello(request):
-    try:
-        product = Product.objects.get(pk=0)
-    except ObjectDoesNotExist:
-        pass
+    product = Product.objects.filter(pk=5).first()
 
-    return render(request, 'hello.html')
+    return render(request, 'hello.html', {'product': product})
