@@ -7,6 +7,18 @@
     <title>Document</title>
   </head>
   <body>
-    <h1>Hello world! {{ product.title }}</h1>
+    <ul>
+      {% for order in orders %}
+      <li>
+        {{ order.id }} - {{ order.customer.first_name }}
+        <ul>
+          Ordered Item: {% for item in order.orderitem_set.all %}
+          <li class="p">{{item.product.title}}</li>
+          {% endfor %}
+        </ul>
+      </li>
+
+      {% endfor %}
+    </ul>
   </body>
 </html>
