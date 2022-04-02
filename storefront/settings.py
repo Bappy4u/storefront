@@ -91,7 +91,7 @@ DATABASES = {
         'NAME': 'storefront',
         'HOST': 'localhost',
         'USER': 'root',
-        'PASSWORD': 'Time2fly@'
+        'PASSWORD': 'mysql'
 
     }
 }
